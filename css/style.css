@@ -32,13 +32,15 @@ Grey dark 3: #999
   --color-grey-light-4: #ccc;
   --color-grey-dark-1: #333;
   --color-grey-dark-2: #777;
-  --color-grey-dark-3: #999; }
+  --color-grey-dark-3: #999;
+  --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3); }
 
 html {
   font-size: 62.5%; }
 
 body {
   min-height: 100vh;
+  padding: 8rem 0;
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
@@ -46,3 +48,107 @@ body {
   color: var(--color-grey-dark-2);
   background-image: linear-gradient(to right bottom, var(--color-primary), var(--color-primary-light));
   background-repeat: no-repeat; }
+
+.logo {
+  display: inline-block;
+  height: 3.25rem;
+  margin-left: 3rem; }
+
+.search {
+  flex: 0 0 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem; }
+  .search__input {
+    display: inline-block;
+    width: 90%;
+    padding: 0.7rem 2rem;
+    margin-right: -3.5rem;
+    border: none;
+    border-radius: 100px;
+    background-color: var(--color-grey-light-2);
+    color: inherit;
+    font-family: inherit;
+    font-style: inherit;
+    transition: all 0.2s; }
+    .search__input:focus {
+      width: 100%;
+      background-color: var(--color-grey-light-3);
+      outline: none; }
+    .search__input::-webkit-input-placeholder {
+      color: var(--color-grey-light-4); }
+  .search__input:focus + .search__button {
+    background-color: var(--color-grey-light-3); }
+  .search__button {
+    border: none;
+    cursor: pointer;
+    background-color: var(--color-grey-light-2); }
+    .search__button:focus {
+      outline: none;
+      transform: translateY(2px); }
+  .search__icon {
+    width: 2.25rem;
+    height: 2.25rem;
+    fill: var(--color-grey-dark-3); }
+
+.user-nav {
+  align-self: stretch;
+  display: flex;
+  align-items: center; }
+  .user-nav > * {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    cursor: pointer; }
+  .user-nav > *:hover {
+    background-color: var(--color-grey-light-2); }
+  .user-nav__icon-box {
+    position: relative; }
+  .user-nav__icon {
+    width: 2rem;
+    height: 2rem;
+    fill: var(--color-grey-dark-2); }
+  .user-nav__notification {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.1rem;
+    height: 1.75rem;
+    width: 1.75rem;
+    color: white;
+    background-color: var(--color-primary);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    line-height: 1.75rem;
+    text-align: center; }
+  .user-nav__user-photo {
+    height: 3.75rem;
+    border-radius: 50%; }
+  .user-nav__user-name {
+    margin-left: 1rem; }
+
+.container {
+  max-width: 120rem;
+  min-height: 50rem;
+  margin: 0 auto;
+  background-color: var(--color-grey-light-1);
+  box-shadow: var(--shadow-dark); }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 7rem;
+  background-color: #fff; }
+
+.content {
+  display: flex; }
+
+.sidebar {
+  flex: 0 0 18%;
+  background-color: var(--color-grey-dark-1); }
+
+.hotel-view {
+  flex: 1;
+  background-color: #c2a0a0; }
