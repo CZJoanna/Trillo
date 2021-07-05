@@ -22,7 +22,7 @@ Grey dark 3: #999
   margin: 0;
   padding: 0;
   box-sizing: inherit;
-  
+
   text-decoration: none;
 }
 
@@ -43,6 +43,9 @@ Grey dark 3: #999
 
   //BOX-SHADOW note: write '0,0,0' instead of 'black'
   --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+  --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.06);
+
+  --line: 1px solid var(--color-grey-light-2);
 }
 
 html {
