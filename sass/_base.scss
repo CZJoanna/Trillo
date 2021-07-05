@@ -48,13 +48,25 @@ Grey dark 3: #999
   --line: 1px solid var(--color-grey-light-2);
 }
 
+//BREAKPOINTS
+//1em = 16px
+
+$bp-largest: 75em; // 1200px
+$bp-large: 68.75em; // 1100px
+$bp-medium: 56.25em; //900px
+$bp-small: 37.5em; //600px
+$bp-smallest: 32.75em; //500px
+
 html {
   font-size: 62.5%; //1rem = 10px   10/16 = 62.5%
+
+  @media only screen and (max-width: $bp-large) {
+    font-size: 56.25%; //1rem = 9px
+  }
 }
 
 body {
   min-height: 100vh;
-  padding: 8rem 0;
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
   font-weight: 400;

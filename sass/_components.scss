@@ -11,12 +11,16 @@
 //SEARCH
 
 .search {
-  //   background-color: pink;
   flex: 0 0 40%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.4rem;
+
+  @media only screen and (max-width: $bp-smallest) {
+    order: 1;
+    flex: 0 0 100%;
+  }
 
   &__input {
     display: inline-block;
@@ -91,14 +95,14 @@
   }
 
   &__icon {
-    width: 2rem;
-    height: 2rem;
+    width: 3rem;
+    height: 3rem;
     fill: var(--color-grey-dark-2);
   }
 
   &__notification {
     position: absolute;
-    top: 1.5rem;
+    top: 2.5rem;
     right: 1.1rem;
     height: 1.75rem;
     width: 1.75rem;
@@ -134,8 +138,23 @@
   list-style: none;
   font-size: 1.4rem;
 
+  @media only screen and (max-width: $bp-medium) {
+    display: flex;
+    // justify-content: space-around;
+    padding: 0;
+  }
+
+  span {
+    text-align: center;
+  }
+
   &__item {
     position: relative;
+    @media only screen and (max-width: $bp-medium) {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
 
     &::before {
       content: "";
@@ -151,7 +170,11 @@
     }
 
     &:not(:last-child) {
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
+
+      @media only screen and (max-width: $bp-medium) {
+        margin-bottom: 0;
+      }
     }
 
     &:hover::before {
@@ -169,10 +192,24 @@
     display: block; //<a> inline -> block
     display: flex;
     align-items: center;
-    padding: 1.5rem 2.5rem;
+    padding: 2rem 2.5rem;
     color: var(--color-grey-light-2);
     text-transform: uppercase;
     z-index: 10;
+
+    @media only screen and (max-width: $bp-medium) {
+      justify-content: center;
+      flex: 1;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &--active {
+      background-color: var(--color-primary-light);
+    }
   }
 
   &__icon {
@@ -181,6 +218,13 @@
     width: 1.75rem;
     margin-right: 2rem;
     fill: currentColor;
+
+    @media only screen and (max-width: $bp-small) {
+      height: 1.5rem;
+      width: 1.5rem;
+      margin-right: 0;
+      margin-bottom: 0.5rem;
+    }
   }
 }
 
@@ -192,6 +236,10 @@
   text-align: center;
   font-size: 1.2rem;
   color: var(--color-grey-light-4);
+
+  @media only screen and (max-width: $bp-medium) {
+    display: none;
+  }
 }
 
 ////////////////////////////////
@@ -218,17 +266,32 @@
   align-items: center;
   border-bottom: var(--line);
 
+  @media only screen and (max-width: $bp-small) {
+    flex-direction: column;
+  }
+
   &__heading {
-    padding: 1.5rem 3rem;
+    padding: 2.5rem 3rem;
     font-size: 2.25rem;
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 1px;
+
+    @media only screen and (max-width: $bp-small) {
+      margin-bottom: -1.5rem;
+      color: var(--color-grey-dark-1);
+      font-size: 3rem;
+      font-weight: 500;
+    }
   }
 
   &__stars {
     display: flex;
     margin-right: auto;
+
+    @media only screen and (max-width: $bp-small) {
+      margin-right: 0;
+    }
   }
 
   &__icon-star,
@@ -246,6 +309,11 @@
     display: flex;
     align-items: center;
     font-size: 1.2rem; //child element will inherit this value
+
+    @media only screen and (max-width: $bp-small) {
+      padding: 2rem 0;
+      font-size: 1.8rem;
+    }
   }
 
   &__rating {
@@ -258,17 +326,28 @@
     margin-left: 3rem;
     color: #fff;
     background-color: var(--color-primary);
+
+    @media only screen and (max-width: $bp-small) {
+      padding: 0.5rem 0rem;
+      margin-left: 0;
+    }
   }
 
   &__rating-average {
     margin-bottom: -3px;
     font-size: 2.25rem;
     font-weight: 300;
+    @media only screen and (max-width: $bp-small) {
+      margin-bottom: 1px;
+      font-size: 3rem;
+    }
   }
 
   &__rating-count {
     font-size: 0.8rem;
+    font-weight: 100;
     text-transform: uppercase;
+    text-align: center;
   }
 }
 
@@ -328,6 +407,14 @@
   background-color: var(--color-grey-light-1);
   border-bottom: var(--line);
   font-size: 1.4rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 3rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    flex-direction: column;
+  }
 }
 
 ////////////////////////////////
@@ -339,6 +426,17 @@
   padding: 3rem;
   background-color: white;
   box-shadow: var(--shadow-light);
+
+  @media only screen and (max-width: $bp-medium) {
+    margin-right: 3rem;
+    padding: 2rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    flex-direction: column;
+    margin-right: 0;
+    margin-bottom: 3rem;
+  }
 }
 
 ////////////////////////////////
@@ -410,6 +508,7 @@
   }
 
   &__friends {
+    display: flex;
   }
 
   &__photo {
@@ -421,7 +520,7 @@
     border: 3px solid white;
 
     &:not(:last-child) {
-      margin-right: -1.5rem;
+      margin-right: -2.5rem;
     }
   }
 }
@@ -432,9 +531,15 @@
 .review {
   position: relative;
   padding: 3rem;
+  margin-bottom: 3.5rem;
   background-color: white;
   box-shadow: var(--shadow-light);
   overflow: hidden;
+
+  @media only screen and(max-width:$bp-medium) {
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
 
   &::before {
     content: "\201C";
@@ -445,10 +550,6 @@
     font-size: 20rem;
     font-family: sans-serif;
     line-height: 1;
-  }
-
-  &:not(:last-child) {
-    margin-bottom: 3.5rem;
   }
 
   &__text {
@@ -500,10 +601,15 @@
   background-color: white;
   text-align: center;
 
+  @media only screen and(max-width:$bp-medium) {
+    padding: 4.5rem 0;
+  }
+
   &__book-now {
     font-size: 2rem;
     font-weight: 300;
     text-transform: uppercase;
+    padding: 0 2rem;
     margin-bottom: 2.5rem;
   }
 }
