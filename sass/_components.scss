@@ -286,8 +286,18 @@
   cursor: pointer;
   transition: all 0.2s;
 
+  & span {
+    display: inline-block;
+    margin-left: 3px;
+    transition: margin-left 0.2s;
+  }
+
   &:hover {
     color: var(--color-grey-dark-1);
+
+    span {
+      margin-left: 8px;
+    }
   }
 
   &:focus {
@@ -317,6 +327,7 @@
   padding: 4.5rem;
   background-color: var(--color-grey-light-1);
   border-bottom: var(--line);
+  font-size: 1.4rem;
 }
 
 ////////////////////////////////
@@ -328,7 +339,6 @@
   padding: 3rem;
   background-color: white;
   box-shadow: var(--shadow-light);
-  font-size: 1.4rem;
 }
 
 ////////////////////////////////
@@ -336,7 +346,9 @@
 
 .user-reviews {
   flex: 1;
-  background-color: rgb(168, 154, 154);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 ////////////////////////////////
@@ -350,6 +362,7 @@
 
 ////////////////////////////////
 //LIST
+
 .list {
   display: flex;
   flex-wrap: wrap;
@@ -386,6 +399,7 @@
 
 ////////////////////////////////
 //RECOMMEND
+
 .recommend {
   display: flex;
   align-items: center;
@@ -409,5 +423,71 @@
     &:not(:last-child) {
       margin-right: -1.5rem;
     }
+  }
+}
+
+////////////////////////////////
+//REVIEWS
+
+.review {
+  position: relative;
+  padding: 3rem;
+  background-color: white;
+  box-shadow: var(--shadow-light);
+  overflow: hidden;
+
+  &::before {
+    content: "\201C";
+    position: absolute;
+    top: -1rem;
+    left: -2rem;
+    color: var(--color-grey-light-2);
+    font-size: 20rem;
+    font-family: sans-serif;
+    line-height: 1;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 3.5rem;
+  }
+
+  &__text {
+    position: relative;
+    margin-bottom: 2rem;
+    z-index: 1;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+  }
+
+  &__photo {
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-right: 1.5rem;
+    border-radius: 50%;
+  }
+
+  &__user-box {
+    margin-right: auto;
+  }
+
+  &__user-name {
+    margin-bottom: 0.4rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  &__user-date {
+    color: var(--color-grey-dark-3);
+    font-size: 1rem;
+  }
+
+  &__rating {
+    color: var(--color-primary);
+    font-size: 2.15rem;
+    font-weight: 300;
   }
 }
