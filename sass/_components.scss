@@ -39,6 +39,10 @@
       width: 100%;
       background-color: var(--color-grey-light-3);
       outline: none;
+
+      @media only screen and (max-width: $bp-smallest) {
+        width: 90%;
+      }
     }
 
     &::-webkit-input-placeholder {
@@ -200,11 +204,13 @@
     @media only screen and (max-width: $bp-medium) {
       justify-content: center;
       flex: 1;
+      
     }
 
     @media only screen and (max-width: $bp-small) {
       flex-direction: column;
       align-items: center;
+      padding: 1rem 0.5rem;
     }
 
     &--active {
@@ -414,6 +420,7 @@
 
   @media only screen and (max-width: $bp-small) {
     flex-direction: column;
+    font-size: 1.8rem;
   }
 }
 
@@ -474,23 +481,36 @@
     flex: 0 0 50%;
     margin-bottom: 0.7rem;
 
+    @media only screen and (max-width: $bp-small) {
+      flex: 0 0 100%;
+      margin-bottom: 0rem;
+      &:not(:last-child) {
+        padding-bottom: 1.2rem;
+      }
+    }
+
     &::before {
       content: "";
       display: inline-block;
       width: 1rem;
       height: 1rem;
       margin-right: 0.7rem;
+     
 
       //Older browsers
-      // background-image: url(../img/chevron-thin-right.svg);
-      // background-size: cover;
+      background-image: url(../img/chevron-thin-right.svg);
+      background-size: cover;
 
       //Newer browsers
-      background-color: var(--color-primary);
-      -webkit-mask-image: url(../img/chevron-thin-right.svg);
-      -webkit-mask-size: cover;
-      mask-image: url(../img/chevron-thin-right.svg);
-      mask-size: cover;
+      @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+        background-color: var(--color-primary);
+        -webkit-mask-image: url(../img/chevron-thin-right.svg);
+        -webkit-mask-size: cover;
+        mask-image: url(../img/chevron-thin-right.svg);
+        mask-size: cover;
+
+        background-image:none; //background-image Older browser同時作用 導致底層顏色顯示不出來
+      }
     }
   }
 }
@@ -520,7 +540,7 @@
     border: 3px solid white;
 
     &:not(:last-child) {
-      margin-right: -2.5rem;
+      margin-right: -1.2rem;
     }
   }
 }
@@ -583,7 +603,7 @@
 
   &__user-date {
     color: var(--color-grey-dark-3);
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
   &__rating {
